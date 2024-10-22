@@ -34,7 +34,7 @@ completed: false
 changeHandler(event: Event){
   const input = event.target as HTMLInputElement;
   const newTask = input.value;
-      this.tasks.update((tasks) => [...tasks, newTask]);
+      this.addTask(newTask);
       input.value = "";
       console.log(newTask);
   }
@@ -43,8 +43,10 @@ changeHandler(event: Event){
     const newTask = {
       id: Date.now(),
       title,
-      completed: false
-    }
+      completed: false,
+    };
+    this.tasks.update((tasks) => [...tasks, newTask]);
+    console.log(newTask);
   }
 
 deleteTask(index: number){
