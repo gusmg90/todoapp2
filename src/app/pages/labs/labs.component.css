@@ -1,0 +1,11 @@
+.container{
+    padding: 1.5rem;
+}
+
+
+.parcels-widget {
+    min-width: 312px;
+    min-height: 210px;
+    width: -moz-available;
+    width: -webkit-fill-available;
+}

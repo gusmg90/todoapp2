@@ -1,0 +1,25 @@
+<div class = "container">
+    <ul>
+    <li *ngFor="let task of tasks(); index as i" (click)="onClickHandler()" >{{i}}{{task}}</li> 
+    </ul>
+
+    {{personobject.name}} {{personobject.age}}
+    {{name()}}{{age()}}
+
+    <img src="{{personobject.img}}" alt="angular logo">
+    <button [disabled]="getEstado()" (click)="onClickHandler()">Click me</button>
+    <input  (change)="changeHandler($event)" type="number">
+    keydown
+
+    <input (keydown)="keydownHandler($event)" type="text" [value]="name()">
+
+    signals
+<!-- 
+    <div class="parcels-widget-wrap">
+        <iframe class="parcels-widget" src="https://parcelsapp.com/widget" frameborder="no" borderInput="yes" seamless width="500px" height="500px%"></iframe>
+    </div> -->
+
+
+
+</div>
+
