@@ -3,10 +3,11 @@
     <li *ngFor="let task of tasks(); index as i" (click)="onClickHandler()" >{{i}}{{task}}</li> 
     </ul>
 
-    {{personobject.name}} {{personobject.age}}
+    {{personobject().name}} {{personobject().age}}
+    ------
     {{name()}}{{age()}}
 
-    <img src="{{personobject.img}}" alt="angular logo">
+    <img src="{{personobject().img}}" alt="angular logo">
     <button [disabled]="getEstado()" (click)="onClickHandler()">Click me</button>
     <input  (change)="changeHandler($event)" type="number">
     keydown
@@ -19,7 +20,13 @@
         <iframe class="parcels-widget" src="https://parcelsapp.com/widget" frameborder="no" borderInput="yes" seamless width="500px" height="500px%"></iframe>
     </div> -->
 
+<div *ngIf="1===1">
+    mi contenido
+</div>
 
+<div *ngIf="name() === 'gustavo'">
+    mi contenido
+</div>
 
 </div>
 

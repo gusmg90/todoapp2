@@ -15,11 +15,11 @@ export class LabsComponent {
   name = signal("gustavo");
   img ="https://picsum.photos/200";
 
-personobject = {
+personobject = signal({
   name: "gustavo",
   age: 30,
   img: "https://picsum.photos/200"
-};
+});
   
   onClickHandler() {
     console.log('Hello, todoapp2');
@@ -39,6 +39,7 @@ personobject = {
 
   keydownHandler(event: KeyboardEvent){
     const input = event.target as HTMLInputElement;
+    this.name.set(input.value);
     console.log(input.value);
   }
 
