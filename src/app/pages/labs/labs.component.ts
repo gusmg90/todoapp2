@@ -2,14 +2,23 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import  { signal } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-labs',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, ReactiveFormsModule],
   templateUrl: './labs.component.html',
   styleUrl: './labs.component.css'
 })
 export class LabsComponent {
+
+
+
+  constructor() {
+    this.colorCtl.valueChanges.subscribe(value => {
+      console.log(value);
+    })
+  }
   tasks = signal(["uno","dos","tres"])
   age = signal(30);
   name = signal("gustavo");
@@ -43,6 +52,10 @@ personobject = signal({
     console.log(input.value);
   }
 
+
+
+
+
   changeName(event: Event){
     const input = event.target as HTMLInputElement;
     const newValue = input.value;
@@ -52,6 +65,9 @@ personobject = signal({
         name: newValue
       }
     })
+    console.log(input.value);
   }
+
+ colorCtl=new FormControl();
 
 }

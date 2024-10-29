@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Task } from '../../models/tasks.model';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -30,6 +31,14 @@ completed: false
     }
 
 ]);
+
+newTaskCtl= new FormControl('',{
+  nonNullable: true,
+  validators: [
+  Validators.required,
+  Validators.minLength(3),
+  ]
+  });
 
 changeHandler(event: Event){
   const input = event.target as HTMLInputElement;
