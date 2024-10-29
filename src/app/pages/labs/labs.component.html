@@ -7,13 +7,11 @@
     ------
     {{name()}}{{age()}}
 
-    <img src="{{personobject().img}}" alt="angular logo">
+    <img [src]="personobject().img" alt="angular logo">
     <button [disabled]="getEstado()" (click)="onClickHandler()">Click me</button>
     <input  (change)="changeHandler($event)" type="number">
     keydown
-
-    <input (keydown)="keydownHandler($event)" type="text" [value]="name()">
-
+    <input (keydown)="changeName($event)" type="text" [value]="personobject().name">
     signals
 <!-- 
     <div class="parcels-widget-wrap">
@@ -24,9 +22,24 @@
     mi contenido
 </div>
 
-<div *ngIf="name() === 'gustavo'">
+<div *ngIf="personobject().name === 'gustavo'">
     mi contenido
 </div>
+
+<div *ngIf="personobject().name === 'gustavo'; else iddebloque">
+    se cumple
+</div>
+
+<ng-template #iddebloque>
+no se cumple
+</ng-template>
+
+<div [ngSwitch]="personobject().name">
+<p *ngSwitchCase = "'gustavo'"> soy gustavo </p>
+<p *ngSwitchCase = "'admin'">  soy admin </p>
+<p *ngSwitchDefault> valor predeterminado </p>
+</div>
+
 
 </div>
 

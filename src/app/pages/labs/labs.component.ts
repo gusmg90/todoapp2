@@ -43,4 +43,15 @@ personobject = signal({
     console.log(input.value);
   }
 
+  changeName(event: Event){
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.personobject.update(prevState =>{
+      return{
+        ...prevState,
+        name: newValue
+      }
+    })
+  }
+
 }
